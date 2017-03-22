@@ -24,7 +24,7 @@ System.Windows.Forms.OpenFileDialog
 
 namespace Files
 {
-    // podaci o folderu
+    // folder info 
     class FolderInfo
     {
         public string Name { get; set; }
@@ -34,15 +34,15 @@ namespace Files
 
     class Program
     {
-        // parametri -> folder patern
+        // perameters 
+        // args[0] folder 
+        // args[1] search pattern
         static void Main(string[] args)
         {
-            
-
             string rootFolder;
             string filter = "";
 
-            // tekući folder
+            // root folder
             if (args.Count() == 0)
             {
                 rootFolder = Directory.GetCurrentDirectory();
@@ -52,7 +52,7 @@ namespace Files
                 rootFolder = args[0];
             }
 
-            // pattern za filtriranje
+            // search pattern 
             if (args.Count() > 1)
             {
                 filter = args[1];
@@ -65,7 +65,7 @@ namespace Files
             if (Directory.Exists(rootFolder))
                 ispisiFolder(rootFolder, filter);
             else
-                Console.WriteLine("Greška ulaznog argumenta - pogrešno zadani folder!");
+                Console.WriteLine("Error - direcory does not exist!");
 
             Console.ReadLine();
         }
